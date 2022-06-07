@@ -3,6 +3,7 @@ from django import forms
 # try:
 from recipes.models import Recipe
 
+
 class RecipeForm(forms.ModelForm):
     class Meta:
         model = Recipe
@@ -12,6 +13,7 @@ class RecipeForm(forms.ModelForm):
             "description",
             "image",
         ]
+
 
 # except Exception:
 #     pass
