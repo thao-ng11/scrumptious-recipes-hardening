@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content%}
+<main>
+    <h1> It look like you took a wrong turn...</h1>
+    <p> Were you trying to visit {{request_path}}? </p>
+    <p>It looks like you got the following exception: {{exception}}</p>
+</main>
+{%endblock content%}

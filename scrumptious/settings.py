@@ -29,6 +29,9 @@ SECRET_KEY = (
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGIN_REDIRECT_URL = "recipes_list"
+LOGOUT_REDIRECT_URL = "recipes_list"
+
 ALLOWED_HOSTS = ["localhost", ".herokuapp.com"]
 
 
