@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block pagianation %}
+{% block pagination %}
     <div class="pagination">
       <span class="step-links">
         {% if page_obj.has_previous %}
@@ -18,10 +18,10 @@
         {% endif %}
       </span>
     </div>
-{% endblock pagianation %}
+{% endblock pagination %}
 
 
-{% block content%}
+{% block content %}
   <main class="recipe-grid">
     {% for recipe in recipe_list %}
       <div class="recipe-card">

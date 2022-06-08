@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+html, button, select, textarea, input {
+  font-family: 'Roboto';
+  font-size: 16px;
+}
+
+header nav ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  justify-items: center;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: #208ACC;
+}
+
+button.button {
+  background-color: #E012AD;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  color: white;
+  padding: 1em 1.5em;
+  text-transform: uppercase;
+}
+
+button.button:hover {
+  background-color: white;
+  border-color: #E012AD;
+  color: #E012AD;
+}
+
+button.button:active {
+  background-color: lightblue;
+}
+
+input, textarea {
+  border: 1px solid #E012AD;
+  border-radius: 4px;
+  padding: 1em 1.5em;
+}
+
+table {
+  margin: auto;
+}
+
+td, th {
+  padding: .25em .5em;
+}
+
+textarea {
+  resize: none;
+}
+
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2em;
+  padding: 2em;
+}
+
+.recipe-card-title {
+  margin-bottom: 0;
+}
+
+.recipe-card-date {
+  color: darkgray;
+}
+
+.recipe-form {
+  margin: 4em auto;
+  min-width: 300px;
+  max-width: 800px;
+}
+
+.recipe-form p {
+  display: grid;
+  grid-template-columns: 8em 1fr;
+  column-gap: 20px;
+}
+
+.recipe-form label {
+  text-align: right;
+}
+
+.recipe-detail {
+  margin: 4em auto;
+  min-width: 300px;
+  max-width: 800px;
+}
+
+.rating-form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, auto) 1fr;
+  align-items: center;
+}
+
+.pull-right {
+  float: right;
+  margin: 1em;
+}
+
+.control {
+  text-align: right;
+}
+
+.delete-form {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
