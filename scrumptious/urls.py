@@ -24,6 +24,7 @@ urlpatterns = [
     path("accounts/logout/", auth_views.LogoutView.as_view(), name="logout"),
     path("recipes/", include("recipes.urls")),
     path("tags/", include("tags.urls")),
+    path("meal_plans/", include("meal_plans.urls")),
     path(
         "",
         RedirectView.as_view(url=reverse_lazy("recipes_list")),

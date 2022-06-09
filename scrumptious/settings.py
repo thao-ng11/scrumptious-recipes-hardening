@@ -39,6 +39,7 @@ ALLOWED_HOSTS = ["localhost", ".herokuapp.com"]
 
 INSTALLED_APPS = [
     "recipes.apps.RecipesConfig",
+    "meal_plans.apps.MealPlansConfig",
     "tags.apps.TagsConfig",
     "django.contrib.admin",
     "django.contrib.auth",
