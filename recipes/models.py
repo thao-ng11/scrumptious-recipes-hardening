@@ -1,6 +1,10 @@
+from enum import unique
+from site import USER_BASE
+from tkinter import CASCADE
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.conf import settings
+
 
 USER_MODEL = settings.AUTH_USER_MODEL
 
@@ -81,3 +85,18 @@ class Rating(models.Model):
         related_name="ratings",
         on_delete=models.CASCADE,
     )
+
+
+class ShoppingItem(models.Model):
+    user = models.ForeignKey(
+        USER_MODEL,
+        related_name="shopping_items",
+        on_delete=models.CASCADE,
+    )
+    food_item = models.ForeignKey(
+        "FoodItem",
+        on_delete=models.PROTECT,
+    )
+
+    class Meta:
+        unique_together = [["user", "food_item"]]

@@ -4,9 +4,12 @@ from recipes.views import (
     RecipeCreateView,
     RecipeDeleteView,
     RecipeUpdateView,
+    create_shopping_item,
+    delete_all_shopping_items,
     log_rating,
     RecipeDetailView,
     RecipeListView,
+    ShoppingItemListView,
 )
 
 urlpatterns = [
@@ -16,4 +19,19 @@ urlpatterns = [
     path("new/", RecipeCreateView.as_view(), name="recipe_new"),
     path("<int:pk>/edit/", RecipeUpdateView.as_view(), name="recipe_edit"),
     path("<int:recipe_id>/ratings/", log_rating, name="recipe_rating"),
+    path(
+        "shopping_items/",
+        ShoppingItemListView.as_view(),
+        name="shopping_item_list",
+    ),
+    path(
+        "shopping_items/create",
+        create_shopping_item,
+        name="shopping_item_create",
+    ),
+    path(
+        "shopping_items/delete",
+        delete_all_shopping_items,
+        name="shopping_item_delete_all",
+    ),
 ]
