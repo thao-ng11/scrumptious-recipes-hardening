@@ -42,9 +42,13 @@ class RecipeDetailView(LoginRequiredMixin, DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["rating_form"] = RatingForm()
+
         foods = []
         for item in self.request.user.shopping_items.all():
             foods.append(item.food_item)
+
+        context["servings"] = self.request.GET.get("servings")
+
         context["food_in_shopping_list"] = foods
         return context
 
@@ -52,7 +56,7 @@ class RecipeDetailView(LoginRequiredMixin, DetailView):
 class RecipeCreateView(LoginRequiredMixin, CreateView):
     model = Recipe
     template_name = "recipes/new.html"
-    fields = ["name", "description", "image"]
+    fields = ["name", "description", "image", "servings"]
     success_url = reverse_lazy("recipes_list")
 
     def form_valid(self, form):
@@ -63,7 +67,7 @@ class RecipeCreateView(LoginRequiredMixin, CreateView):
 class RecipeUpdateView(LoginRequiredMixin, UpdateView):
     model = Recipe
     template_name = "recipes/edit.html"
-    fields = ["name", "author", "description", "image"]
+    fields = ["name", "author", "description", "image", "servings"]
     success_url = reverse_lazy("recipes_list")
 
 
@@ -95,3 +99,16 @@ def create_shopping_item(request):
 def delete_all_shopping_items(request):
     ShoppingItem.objects.filter(user=request.user).delete()
     return redirect("shopping_item_list")
+
+
+# def log_serving(request, recipe_id):
+#     if request.method == "POST":
+#         form = ServingForm(request.POST)
+#         if form.is_valid():
+#             try:
+#                 rating = form.save(commit=False)
+#                 rating.recipe = Recipe.objects.get(pk=recipe_id)
+#                 rating.save()
+#             except Recipe.DoesNotExist:
+#                 return redirect("recipes_list")
+#     return redirect("recipe_detail", pk=recipe_id)

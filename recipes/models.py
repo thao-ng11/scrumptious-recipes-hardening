@@ -100,3 +100,16 @@ class ShoppingItem(models.Model):
 
     class Meta:
         unique_together = [["user", "food_item"]]
+
+
+class Serving(models.Model):
+    value = models.PositiveSmallIntegerField(
+        validators=[
+            MinValueValidator(1),
+        ]
+    )
+    recipe = models.ForeignKey(
+        "Recipe",
+        related_name="servings",
+        on_delete=models.CASCADE,
+    )
